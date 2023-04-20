@@ -7,6 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:application.properties"/>
+    <context:component-scan base-package="org.example"/>
     <bean id="animal" class="org.example.Cat">
         <constructor-arg value="Felix"/>
     </bean>
@@ -15,7 +16,7 @@
     </bean>
     <bean id="dog" class="org.example.Dog" factory-method="getDog"/>
     <bean id="cow" class="org.example.Cow"/>
-    <bean id="person" class="org.example.Person" init-method="init" destroy-method="destroy">
+    <bean id="person" class="org.example.Person" init-method="init" destroy-method="destroy" scope="prototype">
         <constructor-arg ref="cat"/>
         <property name="animal" ref="dog"/>
     </bean>
