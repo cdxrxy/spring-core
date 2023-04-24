@@ -6,15 +6,23 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+//@Component
 public class Cat implements Animal {
-    public Cat(String name) {
+    public Cat(String name, int age) {
         this.name = name;
+        this.age = age;
     }
     public Cat(){}
-    @Value("${cat.name}")
+//    @Value("${cat.name}")
     private String name;
+    private int age;
+    public int getAge() {
+        return this.age;
+    }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
     public String getName() {
         return this.name;
     }
@@ -28,12 +36,12 @@ public class Cat implements Animal {
         return "Meow";
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
         System.out.println("Hello from cat");
     }
 
-    @PreDestroy
+//    @PreDestroy
     public void destroy() {
         System.out.println("Bye from cat");
     }

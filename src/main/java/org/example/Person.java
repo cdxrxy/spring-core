@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Person {
+    // Inversion of Control (IoC)
     private Animal animal;
 
     public Animal getAnimal() {
@@ -16,16 +17,19 @@ public class Person {
         this.animal = animal;
     }
 
-    @Autowired
-    public Person(@Qualifier("cat") Animal animal) {
+//    @Autowired
+    public Person(Animal animal) {
         this.animal = animal;
     }
 
-    public void init() {
-        System.out.println("Person Bean Created!");
-    }
+    public Person() {}
 
-    public void destroy() {
-        System.out.println("Person Bean Deleted!");
-    }
+
+//    public void init() {
+//        System.out.println("Person Bean Created!");
+//    }
+//
+//    public void destroy() {
+//        System.out.println("Person Bean Deleted!");
+//    }
 }
